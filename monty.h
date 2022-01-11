@@ -60,6 +60,7 @@ void my_pall(stack_t **stack, unsigned int line_number);
 void my_pop(stack_t **stack, unsigned int line_number);
 void my_swap(stack_t **stack, unsigned int line_number);
 void my_add(stack_t **stack, unsigned int line_number);
+void my_nop(stack_t **stack, unsigned int line_number);
 
 /* Prototypes functions needed */
 stack_t *add_dnodeint(stack_t **head, const int n);

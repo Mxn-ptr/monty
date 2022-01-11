@@ -27,6 +27,7 @@ instruction_f check_cmd(char *str)
 		{"pop", my_pop},
 		{"swap", my_swap},
 		{"add", my_add},
+		{"nop", my_nop},
 		{NULL, NULL}
 	};
 	
