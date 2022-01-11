@@ -24,6 +24,9 @@ instruction_f check_cmd(char *str)
 	instruction_t cmd[] = {
 		{"push", my_push},
 		{"pall", my_pall},
+		{"pop", my_pop},
+		{"swap", my_swap},
+		{"add", my_add},
 		{NULL, NULL}
 	};
 	

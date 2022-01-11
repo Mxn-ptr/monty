@@ -18,7 +18,7 @@ void my_push(stack_t **stack, unsigned int line_number)
 	else
 		error_push(line_number);
 	add_dnodeint(stack, num);
-	return;
+	free(new);
 }
 void my_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
@@ -29,6 +29,36 @@ void my_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
-	return;
 }
 
+void my_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	if (*stack == NULL)
+	{
+		error_pop(line_number);
+		return;
+	}
+	(*stack) = (*stack)->next;
+	free(tmp);
+}
+
+void my_swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if ((*stack)->next == NULL)
+	{
+		error_swap(line_number);
+		return;
+	}
+	tmp = (*stack)->next->next;
+	(*stack)->next->next = tmp->next;
+	(*stack)->next->prev = tmp;
+	if (tmp->next)
+		tmp->next->prev = (*stack)->next;
+	tmp->next = (*stack)->next;
+	tmp->prev = *stack;
+	(*stack)->next = tmp;
+}

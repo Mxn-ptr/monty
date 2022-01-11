@@ -44,6 +44,9 @@ int error_open(char *filename);
 int error_op(char *opcode, unsigned int line_number);
 int error_malloc(void);
 int error_push(unsigned int line_number);
+int error_pop(unsigned int line_number);
+int error_swap(unsigned int line_number);
+int error_add(unsigned int line_number);
 
 /* Prototypes for read command */
 char *split_cmd(char *cmd);
@@ -54,6 +57,9 @@ int get_cmd(char *filename, stack_t **stack);
 /* Prototypes monty's functions */
 void my_push(stack_t **stack, unsigned int line_number);
 void my_pall(stack_t **stack, unsigned int line_number);
+void my_pop(stack_t **stack, unsigned int line_number);
+void my_swap(stack_t **stack, unsigned int line_number);
+void my_add(stack_t **stack, unsigned int line_number);
 
 /* Prototypes functions needed */
 stack_t *add_dnodeint(stack_t **head, const int n);
