@@ -1,7 +1,7 @@
 push 1
 push 2
 push 3
-pall
+palle
 nop
 add
 pall

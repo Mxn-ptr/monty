@@ -16,6 +16,12 @@ char *split_cmd(char *cmd)
 		return (NULL);
 	return (cmd_splited);
 }
+/**
+ * check_cmd - check if the command is a function
+ * @str: command
+ *
+ * Return: the function or NULL
+ */
 
 instruction_f check_cmd(char *str)
 {
@@ -30,11 +36,19 @@ instruction_f check_cmd(char *str)
 		{"nop", my_nop},
 		{NULL, NULL}
 	};
-	
+
 	while (cmd[i].f != NULL && strcmp(cmd[i].opcode, str) != 0)
 		i++;
-	return (cmd[i].f);	
+	return (cmd[i].f);
 }
+
+/**
+ * get_cmd - get the command and parse it
+ * @filename: file where the command is
+ * @stack: stack
+ *
+ * Return: EXIT_SUCCESS on success or EXIT_FAILURE on failure
+ */
 
 int get_cmd(char *filename, stack_t **stack)
 {
@@ -59,7 +73,7 @@ int get_cmd(char *filename, stack_t **stack)
 		check = check_cmd(line);
 		if (check == NULL)
 			return (error_op(line, line_number));
-		
+
 		check(stack, line_number);
 		line_number++;
 	}

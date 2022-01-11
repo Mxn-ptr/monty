@@ -44,6 +44,13 @@ void free_dlistint(stack_t *head)
 }
 
 
+/**
+ * isnumber - checks if the string is a integer or not
+ * @arg: string to check
+ *
+ * Return: 1 if yes, 0 if no
+ */
+
 int isnumber(char *arg)
 {
 	unsigned int i = 0;
@@ -62,5 +69,5 @@ int isnumber(char *arg)
 			return (0);
 		i++;
 	}
-	return (1);	
+	return (1);
 }
