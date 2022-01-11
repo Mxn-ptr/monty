@@ -14,17 +14,17 @@ void my_push(stack_t **stack, unsigned int line_number)
 	if (isnumber(arg) == 1 && arg != NULL)
 	{
 		num = atoi(arg);
-		add_dnodeint(stack, num);
 	}
 	else
 		error_push(line_number);
+	add_dnodeint(stack, num);
 	return;
 }
 void my_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *tmp = *stack;
-
-	while (tmp != NULL)
+	
+	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;

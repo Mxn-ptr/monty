@@ -61,7 +61,7 @@ int get_cmd(char *filename, stack_t **stack)
 	}
 	free(buffer);
 	statut = fclose(file);
-	if (statut == -1)
+	if (statut != 0)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

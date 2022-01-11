@@ -10,8 +10,9 @@
 
 int main(int argc, char **argv)
 {
-	stack_t *stack;
+	stack_t *stack = NULL;
 	int status = EXIT_SUCCESS;
+
 
 	if (argc != 2)
 		return (error_usage());
