@@ -1,10 +1,12 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,18 +47,17 @@ int error_push(unsigned int line_number);
 
 /* Prototypes for read command */
 char *split_cmd(char *cmd);
-typedef (*instruction_f)(stack_t **stack, unsigned int line_number);
+typedef void (*instruction_f)(stack_t **stack, unsigned int line_number);
 instruction_f check_cmd(char *str);
-int get_cmd(FILE *fd_code, stack_t **stack);
+int get_cmd(char *filename, stack_t **stack);
 
 /* Prototypes monty's functions */
-int my_push(stack_t **stack, unsigned int line_number);
-int my_pall(stack_t **stack, unsigned int line_number);
-int my_pint(stack_t **stack, unsigned int line_number);
-int my_pop(stack_t **stack, unsigned int line_number);
-int my_swap(stack_t **stack, unsigned int line_number);
-int my_nop(stack_t **stack, unsigned int line_number);
-int my_add(stack_t **stack, unsigned int line_number);
+void my_push(stack_t **stack, unsigned int line_number);
+void my_pall(stack_t **stack, unsigned int line_number);
+
+/* Prototypes functions needed */
+stack_t *add_dnodeint(stack_t **head, const int n);
+int isnumber(char *arg);
 
 
 #endif /*MONTY_H*/

@@ -11,15 +11,10 @@
 int main(int argc, char **argv)
 {
 	stack_t *stack;
-	FILE *fd_code = NULL;
 	int status = EXIT_SUCCESS;
 
 	if (argc != 2)
 		return (error_usage());
-	fd_code = fopen(argv[1], "r");
-	if (fd_code == NULL)
-		return (error_open(argv[1]));
-	status = get_cmd(fd_code, &stack);
-	fclose (fd_code);
+	get_cmd(argv[1], &stack);
 	return (status);
 }

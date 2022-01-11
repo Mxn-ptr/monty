@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int my_push(stack_t **stack, unsigned int line_number)
+void my_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	char *arg;
@@ -8,24 +8,27 @@ int my_push(stack_t **stack, unsigned int line_number)
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return (error_malloc());
-	arg = strtok(NULL, "\n ");
+		error_malloc();
 	
-
+	arg = strtok(NULL, "\n ");
+	if (isnumber(arg) == 1 && arg != NULL)
+	{
+		num = atoi(arg);
+		add_dnodeint(stack, num);
+	}
+	else
+		error_push(line_number);
+	return;
 }
-int my_pall(stack_t **stack, unsigned int line_number)
+void my_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
+	stack_t *tmp = *stack;
 
+	while (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+	}
+	return;
 }
-int my_pint(stack_t **stack, unsigned int line_number)
-{
 
-}
-int my_pop(stack_t **stack, unsigned int line_number)
-{
-
-}
-int my_swap(stack_t **stack, unsigned int line_number)
-{
-
-}

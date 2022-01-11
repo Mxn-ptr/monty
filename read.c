@@ -24,11 +24,6 @@ instruction_f check_cmd(char *str)
 	instruction_t cmd[] = {
 		{"push", my_push},
 		{"pall", my_pall},
-		{"pint", my_pint},
-		{"pop", my_pop},
-		{"swap", my_swap},
-		{"add", my_add},
-		{"nop", my_nop},
 		{NULL, NULL}
 	};
 	
@@ -37,15 +32,19 @@ instruction_f check_cmd(char *str)
 	return (cmd[i].f);	
 }
 
-int get_cmd(FILE *fd_code, stack_t **stack)
+int get_cmd(char *filename, stack_t **stack)
 {
 	char *buffer = NULL, *line;
 	unsigned int line_number = 1;
 	size_t i;
 	instruction_f check;
 	int read;
+	int statut;
+	FILE *file = fopen(filename, "r");
 
-	while ((read = getline(&buffer, &i, fd_code)) != -1)
+	if (file == NULL)
+		return (error_open(filename));
+	while ((read = getline(&buffer, &i, file)) != -1)
 	{
 		line = split_cmd(buffer);
 		if (line == NULL || line[0] == '#')
@@ -61,5 +60,8 @@ int get_cmd(FILE *fd_code, stack_t **stack)
 		line_number++;
 	}
 	free(buffer);
+	statut = fclose(file);
+	if (statut == -1)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
