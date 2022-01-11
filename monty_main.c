@@ -16,5 +16,6 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		return (error_usage());
 	get_cmd(argv[1], &stack);
+	free_dlistint(stack);
 	return (status);
 }

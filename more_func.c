@@ -25,6 +25,25 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	return (new);
 }
 
+/**
+ * free_dlistint - free a listint
+ * @head: pointer to the head of the list
+ */
+
+void free_dlistint(stack_t *head)
+{
+	stack_t *p;
+
+	while (head)
+	{
+		p = head->next;
+		free(head);
+		head = p;
+	}
+
+}
+
+
 int isnumber(char *arg)
 {
 	unsigned int i = 0;

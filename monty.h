@@ -58,6 +58,7 @@ void my_pall(stack_t **stack, unsigned int line_number);
 /* Prototypes functions needed */
 stack_t *add_dnodeint(stack_t **head, const int n);
 int isnumber(char *arg);
+void free_dlistint(stack_t *head);
 
 
 #endif /*MONTY_H*/
