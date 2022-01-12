@@ -22,6 +22,7 @@ void my_push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
+		free(new);
 		error_push(line_number);
 		return;
 	}
