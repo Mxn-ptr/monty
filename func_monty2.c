@@ -86,13 +86,3 @@ void my_mod(stack_t **stack, unsigned int line_number)
 	my_pop(stack, line_number);
 }
 
-void my_sub(stack_t **stack, unsigned int line_number)
-{
-	if ((*stack) == NULL || (*stack)->next == NULL)
-	{
-		error_sub(line_number);
-		return;
-	}
-	(*stack)->next->n -= (*stack)->n;
-	my_pop(stack, line_number);
-}

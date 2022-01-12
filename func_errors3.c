@@ -40,7 +40,7 @@ int error_mod(unsigned int line_number)
 }
 
 /**
- * error_pint - Prints an error for pint function on stderr
+ * error_sub - Prints an error for sub function on stderr
  * @line_number: line where the error is
  *
  * Return: Always EXIT_FAILURE
