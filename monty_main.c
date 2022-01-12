@@ -11,12 +11,11 @@
 int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
-	int status = EXIT_SUCCESS;
 
 
 	if (argc != 2)
 		return (error_usage());
 	get_cmd(argv[1], &stack);
 	free_dlistint(stack);
-	return (status);
+	return (0);
 }
