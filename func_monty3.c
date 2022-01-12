@@ -68,9 +68,11 @@ void my_pchar(stack_t **stack, unsigned int line_number)
 		error_ascii(line_number);
 		return;
 	}
-
-	_putchar(c);
-	_putchar('\n');
+	else
+	{
+		_putchar(c);
+		_putchar('\n');
+	}
 }
 
 /**
