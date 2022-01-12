@@ -52,6 +52,7 @@ int error_mul(unsigned int line_number);
 int error_mod(unsigned int line_number);
 int error_zero(unsigned int line_number);
 int error_pint(unsigned int line_number);
+int error_sub(unsigned int line_number);
 
 /* Prototypes for read command */
 char *split_cmd(char *cmd);
@@ -70,6 +71,7 @@ void my_mul(stack_t **stack, unsigned int line_number);
 void my_mod(stack_t **stack, unsigned int line_number);
 void my_nop(stack_t **stack, unsigned int line_number);
 void my_pint(stack_t **stack, unsigned int line_number);
+void my_sub(stack_t **stack, unsigned int line_number);
 
 /* Prototypes functions needed */
 stack_t *add_dnodeint(stack_t **head, const int n);

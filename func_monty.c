@@ -75,7 +75,7 @@ void my_swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		error_swap(line_number);
 		return;

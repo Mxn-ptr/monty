@@ -38,6 +38,7 @@ instruction_f check_cmd(char *str)
 		{"div", my_div},
 		{"mul", my_mul},
 		{"mod", my_mod},
+		{"sub", my_sub},
 		{NULL, NULL}
 	};
 

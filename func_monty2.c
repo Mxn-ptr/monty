@@ -7,7 +7,7 @@
  */
 void my_add(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		error_add(line_number);
 		return;
@@ -35,17 +35,17 @@ unsigned int line_number __attribute__((unused)))
  */
 void my_div(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		error_div(line_number);
 		return;
 	}
-	else if ((*stack)->next->n == 0)
+	else if ((*stack)->n == 0)
 	{
 		error_zero(line_number);
 		return;
 	}
-	(*stack)->n = (*stack)->next->n / (*stack)->n;
+	(*stack)->next->n /= (*stack)->n;
 	my_pop(stack, line_number);
 }
 
@@ -56,12 +56,12 @@ void my_div(stack_t **stack, unsigned int line_number)
  */
 void my_mul(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		error_mul(line_number);
 		return;
 	}
-	(*stack)->n = (*stack)->next->n * (*stack)->n;
+	(*stack)->next->n *= (*stack)->n;
 	my_pop(stack, line_number);
 }
 
@@ -72,17 +72,27 @@ void my_mul(stack_t **stack, unsigned int line_number)
  */
 void my_mod(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		error_mod(line_number);
 		return;
 	}
-	else if ((*stack)->next->n == 0)
+	else if ((*stack)->n == 0)
 	{
 		error_zero(line_number);
 		return;
 	}
-	(*stack)->n = (*stack)->next->n % (*stack)->n;
+	(*stack)->next->n %= (*stack)->n;
 	my_pop(stack, line_number);
 }
 
+void my_sub(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		error_sub(line_number);
+		return;
+	}
+	(*stack)->next->n -= (*stack)->n;
+	my_pop(stack, line_number);
+}

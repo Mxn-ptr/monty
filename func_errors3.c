@@ -39,3 +39,15 @@ int error_mod(unsigned int line_number)
 	return (EXIT_FAILURE);
 }
 
+/**
+ * error_pint - Prints an error for pint function on stderr
+ * @line_number: line where the error is
+ *
+ * Return: Always EXIT_FAILURE
+ */
+
+int error_sub(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: ccan't sub, stack too short\n", line_number);
+	return (EXIT_FAILURE);
+}
