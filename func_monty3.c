@@ -65,7 +65,8 @@ void my_pchar(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	_putchar(stack->n);
+	_putchar((*stack)->n);
+	_putchar('\n');
 }
 
 /**
