@@ -53,6 +53,8 @@ int error_mod(unsigned int line_number);
 int error_zero(unsigned int line_number);
 int error_pint(unsigned int line_number);
 int error_sub(unsigned int line_number);
+int error_ascii(unsigned int line_number);
+int error_pchar(unsigned int line_number);
 
 /* Prototypes for read command */
 char *split_cmd(char *cmd);
