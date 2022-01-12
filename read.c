@@ -40,6 +40,7 @@ instruction_f check_cmd(char *str)
 		{"mod", my_mod},
 		{"sub", my_sub},
 		{"pchar",my_pchar},
+		{"pstr", my_pstr},
 		{NULL, NULL}
 	};
 
