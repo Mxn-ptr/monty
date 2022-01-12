@@ -27,3 +27,62 @@ unsigned int line_number __attribute__((unused)))
 {
 	;
 }
+
+/**
+ * my_div - divide the two top elements
+ * @stack: stack where the two integers are
+ * @line_number: line of the command
+ */
+void my_div(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL)
+	{
+		error_div(line_number);
+		return;
+	}
+	else if ((*stack)->next->n == 0)
+	{
+		error_zero(line_number);
+		return;
+	}
+	(*stack)->n = (*stack)->next->n / (*stack)->n;
+	my_pop(stack, line_number);
+}
+
+/**
+ * my_mul - multiply the two top elements
+ * @stack: stack where the two integers are
+ * @line_number: line of the command
+ */
+void my_mul(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL)
+	{
+		error_mul(line_number);
+		return;
+	}
+	(*stack)->n = (*stack)->next->n * (*stack)->n;
+	my_pop(stack, line_number);
+}
+
+/**
+ * my_mod - divide the two top elements and store the rest
+ * @stack: stack where the two integers are
+ * @line_number: line of the command
+ */
+void my_mod(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL)
+	{
+		error_mod(line_number);
+		return;
+	}
+	else if ((*stack)->next->n == 0)
+	{
+		error_zero(line_number);
+		return;
+	}
+	(*stack)->n = (*stack)->next->n % (*stack)->n;
+	my_pop(stack, line_number);
+}
+
