@@ -53,19 +53,23 @@ void my_sub(stack_t **stack, unsigned int line_number)
  */
 void my_pchar(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp = *stack;
+	int c;
+
 	if (is_empty(stack) == 0)
 	{
-		error_pint(line_number);
+		error_pchar(line_number);
 		return;
 	}
+	c = tmp->n;
 
-	else if (((*stack)->n < 0)&&((*stack)->n > 127))
+	if (!isprint(c))
 	{
 		error_ascii(line_number);
 		return;
 	}
 
-	_putchar((*stack)->n);
+	_putchar(c);
 	_putchar('\n');
 }
 
