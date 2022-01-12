@@ -50,3 +50,9 @@ int error_div(unsigned int line_number)
 	fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 	return (EXIT_FAILURE);
 }
+
+int error_pint(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: can't pint, stack emplty\n", line_number);
+	return (EXIT_FAILURE);
+}

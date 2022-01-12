@@ -21,7 +21,10 @@ void my_push(stack_t **stack, unsigned int line_number)
 		num = atoi(arg);
 	}
 	else
+	{
 		error_push(line_number);
+		return;
+	}
 	add_dnodeint(stack, num);
 	free(new);
 }

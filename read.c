@@ -34,6 +34,10 @@ instruction_f check_cmd(char *str)
 		{"swap", my_swap},
 		{"add", my_add},
 		{"nop", my_nop},
+		{"pint", my_pint},
+		{"div", my_div},
+		{"mul", my_mul},
+		{"mod", my_mod},
 		{NULL, NULL}
 	};
 

@@ -6,9 +6,9 @@
  *
  * Return: empty stack
  */
-int is_empty(stack_t *stack)
+int is_empty(stack_t **stack)
 {
-	if (st == NULL)
+	if ((*stack)== NULL)
 		return (0);
 	return (1);
 }
@@ -19,10 +19,13 @@ int is_empty(stack_t *stack)
  *
  * Return: nothing
  */
-void my_pint(stack_t *stack)
+void my_pint(stack_t **stack, unsigned int line_number)
 {
-	if (is_empty(st) == 0)
+	if (is_empty(stack) == 0)
+	{
+		error_pint(line_number);
 		return;
-	printf("%d\n", stack_t->n);
+	}
+	printf("%d\n", (*stack)->n);
 }
 
