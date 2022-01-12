@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <unistd.h>
 
 /**
  * is_empty - chack if stack is empty
@@ -42,4 +43,39 @@ void my_sub(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n -= (*stack)->n;
 	my_pop(stack, line_number);
+}
+
+/**
+ * my_pchar - print ASCII value of int
+ * @line_number: line to check
+ *
+ * Return: nothing
+ */
+void my_pchar(stack_t **stack, unsigned int line_number)
+{
+	if (is_empty(stack) == 0)
+	{
+		error_pint(line_number);
+		return;
+	}
+
+	else if (((*stack)->n < 0)&&((*stack)->n > 127))
+	{
+		error_ascii(line_number);
+		return;
+	}
+
+	_putchar(stack->n);
+}
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }
