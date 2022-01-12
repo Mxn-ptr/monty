@@ -39,7 +39,7 @@ void my_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *tmp = *stack;
 
-	while (tmp)
+	while (tmp != NULL)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
