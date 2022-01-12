@@ -47,6 +47,7 @@ void my_sub(stack_t **stack, unsigned int line_number)
 
 /**
  * my_pchar - print ASCII value of int
+ * @stack: stack
  * @line_number: line to check
  *
  * Return: nothing

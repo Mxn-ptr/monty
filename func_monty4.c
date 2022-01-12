@@ -2,6 +2,7 @@
 
 /**
  * my_pstr - print string of stack
+ * @stack: stack to print
  * @line_number: line to check
  *
  * Return: nothing

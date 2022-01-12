@@ -39,7 +39,7 @@ instruction_f check_cmd(char *str)
 		{"mul", my_mul},
 		{"mod", my_mod},
 		{"sub", my_sub},
-		{"pchar",my_pchar},
+		{"pchar", my_pchar},
 		{"pstr", my_pstr},
 		{NULL, NULL}
 	};
