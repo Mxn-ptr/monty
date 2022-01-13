@@ -7,9 +7,10 @@
  *
  * Return: nothing
  */
-void my_pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void my_pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-	int i;
+	stack_t *tmp = *stack;
+	int c;
 
 	if (is_empty(stack) == 0)
 	{
@@ -17,11 +18,16 @@ void my_pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 		return;
 	}
 
-	else if (((*stack)->n <= 0) || ((*stack)->n > 127))
-		return;
-
-	for (i = 0; (*stack)->next != NULL; i++)
-		_putchar((*stack)->n);
-
+	while (tmp != NULL)
+	{
+		c = tmp->n;
+		if (c == 0)
+			break;
+		if(!isprint(c))
+			break;
+		_putchar(c);
+		tmp = tmp->next;
+	}
+	printf("\n");
 }
 
