@@ -10,6 +10,6 @@
 int error_pchar(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 

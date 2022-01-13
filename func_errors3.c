@@ -10,7 +10,7 @@
 int error_zero(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: division by zero\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -23,7 +23,7 @@ int error_zero(unsigned int line_number)
 int error_mul(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -36,7 +36,7 @@ int error_mul(unsigned int line_number)
 int error_mod(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -49,7 +49,7 @@ int error_mod(unsigned int line_number)
 int error_sub(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -62,6 +62,6 @@ int error_sub(unsigned int line_number)
 int error_ascii(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
