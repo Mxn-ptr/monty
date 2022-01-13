@@ -41,6 +41,7 @@ instruction_f check_cmd(char *str)
 		{"sub", my_sub},
 		{"pchar", my_pchar},
 		{"pstr", my_pstr},
+		{"rotl", my_rotl},
 		{NULL, NULL}
 	};
 

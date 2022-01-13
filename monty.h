@@ -76,6 +76,7 @@ void my_pint(stack_t **stack, unsigned int line_number);
 void my_sub(stack_t **stack, unsigned int line_number);
 void my_pchar(stack_t **stack, unsigned int line_number);
 void my_pstr(stack_t **stack, unsigned int line_number);
+void my_rotl(stack_t **stack, unsigned int line_number);
 
 /* Prototypes functions needed */
 stack_t *add_dnodeint(stack_t **head, const int n);
